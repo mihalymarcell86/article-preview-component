@@ -1,0 +1,32 @@
+@keyframes growing_circle {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(30);
+  }
+}
+
+.animation_circle {
+  position: absolute;
+  right: rem(48px);
+  bottom: rem(32px);
+  transform: translate(50%, 50%);
+  background-color: color(very-dark-grayish-blue);
+  width: rem(30px);
+  height: rem(30px);
+  border-radius: 100%;
+}
+
+.footer__animation-container {
+  display: none;
+  position: absolute;
+  height: rem(64px);
+  width: 100%;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
