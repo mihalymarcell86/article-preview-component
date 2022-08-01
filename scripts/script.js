@@ -10,18 +10,31 @@ let mobileMenuOpen = false;
 function toggleShareMenu() {
   shareButton.classList.toggle("share-btn--active");
 
-  if (mobileMenuOpen) {
-    shareMenu.style.opacity = "0";
-    container.style.display = "none";
-    author.style.opacity = "1";
-    setTimeout(() => (shareMenu.style.display = "none"), 290);
+  if (window.innerWidth < 800) {
+    if (mobileMenuOpen) {
+      shareMenu.style.opacity = "0";
+      container.style.display = "none";
+      author.style.opacity = "1";
+      setTimeout(() => (shareMenu.style.display = "none"), 290);
+    } else {
+      author.style.opacity = "0";
+      menuAnimation();
+      shareMenu.style.display = "flex";
+      setTimeout(() => {
+        shareMenu.style.opacity = "1";
+      }, 500);
+    }
   } else {
-    author.style.opacity = "0";
-    menuAnimation();
-    shareMenu.style.display = "flex";
-    setTimeout(() => {
-      shareMenu.style.opacity = "1";
-    }, 500);
+    if (mobileMenuOpen) {
+      shareMenu.style.opacity = "0";
+    } else {
+      shareMenu.style.display = "flex";
+      shareMenu.style.animation = ".5s forwards tooltip_popup";
+      setTimeout(() => {
+        shareMenu.style.opacity = "1";
+        shareMenu.style.animation = "";
+      }, 490);
+    }
   }
 
   mobileMenuOpen = !mobileMenuOpen;
@@ -30,14 +43,16 @@ function toggleShareMenu() {
 function menuAnimation() {
   const div = document.createElement("div");
   div.classList.add("animation_circle");
-  div.style.animation = ".7s growing_circle";
+  div.style.animation = ".5s growing_circle cubic-bezier(.87,.25,.58,.95)";
   container.style.display = "block";
   container.style.backgroundColor = "transparent";
   container.append(div);
   setTimeout(() => {
     container.style.backgroundColor = "hsl(217, 19%, 35%)";
     div.remove();
-  }, 600);
+  }, 450);
 }
 
 shareButton.addEventListener("click", toggleShareMenu);
+
+//Tooltip menu

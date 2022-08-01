@@ -8,6 +8,19 @@
     transform: scale(30);
   }
 }
+@keyframes tooltip_popup {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .animation_circle {
   position: absolute;
   right: 3.6923076923rem;
@@ -70,7 +83,6 @@ a:hover {
   background-color: white;
   box-shadow: 0px 40px 40px -10px hsla(210deg, 29%, 84%, 0.503);
   border-radius: 10px;
-  overflow: hidden;
   width: 100%;
   max-width: 34.6153846154rem;
 }
@@ -97,12 +109,14 @@ a:hover {
   height: 200px;
   object-fit: cover;
   object-position: left 50% top clamp(-30.5px, 0.0153846154 * 100vw + -36.2692307692px, -28.5px);
+  border-radius: 10px 10px 0 0;
 }
 @media (min-width: 800px) {
   .card__img {
     width: 21.9230769231rem;
     height: 21.5384615385rem;
     object-position: left center;
+    border-radius: 10px 0 0 10px;
   }
 }
 
@@ -168,7 +182,7 @@ a:hover {
   align-items: center;
   gap: 1.2307692308rem;
   margin-left: 2.4615384615rem;
-  transition: 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 @media (min-width: 800px) {
   .footer__author {
@@ -242,6 +256,32 @@ a:hover {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+@media (min-width: 800px) {
+  .footer__share-menu {
+    width: 19.0769230769rem;
+    height: 4.2307692308rem;
+    background-color: hsl(217deg, 19%, 35%);
+    box-shadow: 0px 10px 10px rgba(201, 213, 225, 0.503415);
+    border-radius: 10px;
+    padding: 1.2307692308rem 2.7692307692rem;
+    left: auto;
+    right: clamp(-8.3076923077rem, -0.43 * 100vw + 21.4615384615rem, -5rem);
+    bottom: 5.3076923077rem;
+    transition: opacity 0.3s ease;
+  }
+}
+@media (min-width: 800px) {
+  .footer__share-menu:after {
+    content: "";
+    background-color: hsl(217deg, 19%, 35%);
+    position: absolute;
+    width: 1.8461538462rem;
+    height: 1.8461538462rem;
+    bottom: 0;
+    left: clamp(8.6153846154rem, -0.43 * 100vw + 38.3846153846rem, 11.9230769231rem);
+    transform: translateY(50%) rotate(45deg);
+  }
+}
 
 .menu__share {
   font-size: 1rem;
@@ -252,6 +292,11 @@ a:hover {
   color: hsl(212deg, 23%, 69%);
   justify-content: space-between;
   margin-right: 7.98%;
+}
+@media (min-width: 800px) {
+  .menu__share {
+    margin-right: 1.6153846154rem;
+  }
 }
 
 .menu__social-media {

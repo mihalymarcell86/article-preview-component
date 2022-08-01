@@ -9,6 +9,22 @@
   }
 }
 
+@keyframes tooltip_popup {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .animation_circle {
   position: absolute;
   right: rem(48px);
