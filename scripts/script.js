@@ -5,13 +5,13 @@ const container = document.querySelector(".footer__animation-container");
 
 //Mobile menu animation
 
-let mobileMenuOpen = false;
+let isMenuOpen = false;
 
 function toggleShareMenu() {
   shareButton.classList.toggle("share-btn--active");
 
   if (window.innerWidth < 800) {
-    if (mobileMenuOpen) {
+    if (isMenuOpen) {
       shareMenu.style.opacity = "0";
       container.style.display = "none";
       author.style.opacity = "1";
@@ -25,7 +25,7 @@ function toggleShareMenu() {
       }, 500);
     }
   } else {
-    if (mobileMenuOpen) {
+    if (isMenuOpen) {
       shareMenu.style.opacity = "0";
     } else {
       shareMenu.style.display = "flex";
@@ -37,7 +37,7 @@ function toggleShareMenu() {
     }
   }
 
-  mobileMenuOpen = !mobileMenuOpen;
+  isMenuOpen = !isMenuOpen;
 }
 
 function menuAnimation() {
@@ -55,4 +55,15 @@ function menuAnimation() {
 
 shareButton.addEventListener("click", toggleShareMenu);
 
-//Tooltip menu
+//if window is resized while the menu is open,
+//close the menu to avoid clashing
+
+window.addEventListener("resize", () => {
+  if (isMenuOpen) {
+    shareMenu.style.opacity = "0";
+    container.style.display = "none";
+    author.style.opacity = "1";
+    shareMenu.style.display = "none";
+    isMenuOpen = false;
+  }
+});
