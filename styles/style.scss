@@ -25,7 +25,10 @@ body {
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
-  max-width: rem(730px);
+  max-width: rem(450px);
+  @media (min-width: $breakpoint) {
+    max-width: rem(730px);
+  }
 }
 
 .card__content {
@@ -116,6 +119,7 @@ body {
   height: rem(32px);
   border: 0;
   border-radius: 100%;
+  margin-left: rem(16px);
   cursor: pointer;
   background-color: color(light-grayish-blue);
   color: color(desaturated-dark-blue);

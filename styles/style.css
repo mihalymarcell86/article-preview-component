@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
-@media (min-width: 1440px) {
+@media (min-width: 800px) {
   body {
     padding-top: 0;
     align-items: center;
@@ -33,7 +33,12 @@ body {
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
-  max-width: 56.1538461538rem;
+  max-width: 34.6153846154rem;
+}
+@media (min-width: 800px) {
+  .card {
+    max-width: 56.1538461538rem;
+  }
 }
 
 .card__content {
@@ -41,7 +46,7 @@ body {
   flex-direction: column;
   gap: 2.7692307692rem;
 }
-@media (min-width: 1440px) {
+@media (min-width: 800px) {
   .card__content {
     flex-direction: row;
     gap: 3.0769230769rem;
@@ -53,7 +58,7 @@ body {
   height: 200px;
   object-fit: cover;
 }
-@media (min-width: 1440px) {
+@media (min-width: 800px) {
   .card__img {
     width: 21.9230769231rem;
     height: 21.5384615385rem;
@@ -65,7 +70,7 @@ body {
   padding-inline: 2.4615384615rem;
   padding-bottom: 1.5384615385rem;
 }
-@media (min-width: 1440px) {
+@media (min-width: 800px) {
   .card__text {
     padding: 2.4615384615rem 3.0769230769rem 2.4615384615rem 0;
   }
@@ -79,7 +84,7 @@ body {
   color: hsl(217deg, 19%, 35%);
   margin-bottom: 0.75em;
 }
-@media (min-width: 1440px) {
+@media (min-width: 800px) {
   .text__heading {
     font-size: 1.5384615385rem;
     line-height: 1.4;
@@ -96,7 +101,7 @@ body {
   color: hsl(214deg, 17%, 51%);
   margin-bottom: 2.4615384615em;
 }
-@media (min-width: 1440px) {
+@media (min-width: 800px) {
   .text__paragraph {
     margin-bottom: 1.5384615385em;
   }
@@ -141,6 +146,7 @@ body {
   height: 2.4615384615rem;
   border: 0;
   border-radius: 100%;
+  margin-left: 1.2307692308rem;
   cursor: pointer;
   background-color: hsl(210deg, 46%, 95%);
   color: hsl(214deg, 17%, 51%);
